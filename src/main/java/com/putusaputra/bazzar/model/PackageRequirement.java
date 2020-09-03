@@ -1,16 +1,18 @@
 package com.putusaputra.bazzar.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.putusaputra.bazzar.constant.ProductStatus;
+import com.putusaputra.bazzar.converter.ProductRequirementConverter;
+import com.putusaputra.bazzar.dto.ProductRequirement;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,11 +21,11 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "product")
+@Table(name = "package_requirement")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Product {
+public class PackageRequirement {
     @Id
     @Column(name = "id")
     @GeneratedValue(generator = "system-uuid")
@@ -34,15 +36,6 @@ public class Product {
     private String name;
     
     @Column(nullable = false)
-    private int stock;
-    
-    @Column(nullable = false)
-    private double purchasePrice;
-    
-    @Column(nullable = false)
-    private double sellPrice;
-    
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private ProductStatus status;
+    @Convert(converter = ProductRequirementConverter.class)
+    private List<ProductRequirement> products;
 }
