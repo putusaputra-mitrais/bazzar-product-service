@@ -93,6 +93,7 @@ public class PackageService {
                     .purchasePrice(request.getPurchasePrice())
                     .sellPrice(request.getSellPrice())
                     .status(ProductStatus.PACKAGE)
+                    .packageRequirement(requirement)
                     .build();
             result = this.productRepository.save(product);
             this.decreaseStock(request);

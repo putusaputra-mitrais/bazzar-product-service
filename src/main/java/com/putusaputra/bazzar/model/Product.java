@@ -6,6 +6,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -45,4 +47,8 @@ public class Product {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private ProductStatus status;
+    
+    @OneToOne
+    @JoinColumn(name = "package_requirement_id")
+    private PackageRequirement packageRequirement;
 }

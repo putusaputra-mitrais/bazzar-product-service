@@ -26,14 +26,9 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api/product/package")
 @Slf4j
 public class PackageController {
-    private static final String PACKAGE_DATA_MESSAGE = "Package Data";
     private static final String PACKAGE_SAVE_SUCCESS_MESSAGE = "Package Data saved successfully";
     private static final String PACKAGE_SAVE_FAILED_MESSAGE = "Package Data save failed";
-    private static final String PACKAGE_UPDATE_SUCCESS_MESSAGE = "Package Data updated successfully";
-    private static final String PACKAGE_UPDATE_FAILED_MESSAGE = "Package Data update failed";
-    private static final String PACKAGE_DELETE_SUCCESS_MESSAGE = "Package Data deleted successfully";
-    private static final String PACKAGE_DELETE_FAILED_MESSAGE = "Package Data delete failed";
-    
+
     @Autowired
     private PackageService service;
     

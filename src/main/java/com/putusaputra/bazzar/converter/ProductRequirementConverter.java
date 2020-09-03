@@ -43,15 +43,6 @@ public class ProductRequirementConverter implements AttributeConverter<List<Prod
                 while(iterator.hasNext()) {
                     JsonNode objNode = (ObjectNode) iterator.next();
                     String productId = objNode.get("productId").asText();
-                    
-//                    JsonNode productNode = objNode.get("product");
-//                    Product product = Product.builder()
-//                            .id(productNode.get("id").asText())
-//                            .name(productNode.get("name").asText())
-//                            .stock(productNode.get("stock").asInt())
-//                            .purchasePrice(productNode.get("purchasePrice").asDouble())
-//                            .purchasePrice(productNode.get("sellPrice").asDouble())
-//                            .build();
                     int qty = objNode.get("qty").asInt();
                     ProductRequirement req = ProductRequirement.builder()
                             .productId(productId)
